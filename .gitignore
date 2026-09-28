@@ -19,6 +19,8 @@ dist/
 .env
 .env.*
 !.env.example
+# build settings, not secrets - the Pages deploy needs this file
+!frontend/.env.production
 *.pem
 *.key
 id_rsa*

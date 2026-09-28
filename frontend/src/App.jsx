@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import AlertDetails from './pages/AlertDetails.jsx'
 import Alerts from './pages/Alerts.jsx'
@@ -27,6 +27,15 @@ function NotFound() {
   )
 }
 
+/**
+ * GitHub Pages has no server-side SPA fallback, so a hard refresh on
+ * /alerts/<id> returns 404 before the app ever boots. HashRouter keeps the
+ * route in the fragment (#/alerts/1), which Pages happily serves index.html
+ * for. Opt out with VITE_ROUTER=browser when the host does real rewrites.
+ */
+const USE_HASH_ROUTER = String(import.meta.env.VITE_ROUTER ?? 'hash').toLowerCase() !== 'browser'
+const Router = USE_HASH_ROUTER ? HashRouter : BrowserRouter
+
 /** Full-screen splash used only for the very first paint. */
 function Splash() {
   return (
@@ -46,7 +55,7 @@ export default function App() {
   if (data.loading && !data.metrics) return <Splash />
 
   return (
-    <BrowserRouter>
+    <Router>
       <div className="app">
         <Navbar
           status={data.status}
@@ -77,6 +86,6 @@ export default function App() {
           </span>
         </footer>
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }

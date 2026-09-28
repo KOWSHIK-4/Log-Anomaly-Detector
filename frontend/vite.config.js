@@ -14,6 +14,12 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+
+    // GitHub Pages serves the site from https://<user>.github.io/<repo>/,
+    // so every asset URL and router route needs the repo name as a prefix.
+    // Set to '/' for local dev and for any root-hosted deploy (Vercel, etc).
+    base: env.VITE_BASE_PATH || (env.GITHUB_ACTIONS ? '/Log-Anomaly-Detector/' : '/'),
+
     server: {
       port: 5173,
       strictPort: false,
