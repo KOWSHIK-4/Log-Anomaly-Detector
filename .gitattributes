@@ -1,0 +1,17 @@
+# Normalise line endings: check out LF, commit as-is.
+* text=auto
+
+*.py    text diff=python
+*.js    text diff=javascript
+*.jsx   text diff=javascript
+*.css   text
+*.html  text
+*.json  text
+*.md    text
+*.txt   text
+*.example text
+
+# Binary-ish / keep as-is
+*.log   -text
+*.ico   binary
+*.png   binary

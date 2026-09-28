@@ -1,0 +1,43 @@
+# --- Python ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node / frontend ---
+node_modules/
+dist/
+.vite/
+*.local
+
+# --- Secrets: only *.example files may ever be committed ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials
+
+# --- Runtime / generated data (NOT source) ---
+# demo.log is the live append target and grows without bound
+backend/data/*.log
+backend/data/alerts/
+backend/data/.pytest/
+backend/data/demo.log
+# sample.log IS source and stays tracked
+!backend/data/sample.log
+
+# --- Archives / editor / OS ---
+*.zip
+*.tar.gz
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

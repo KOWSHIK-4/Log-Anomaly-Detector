@@ -1,0 +1,13 @@
+﻿2024-05-14T10:15:02.114Z INFO  [api-gateway] request completed method=GET path=/api/v1/orders status=200 duration_ms=42
+2024-05-14T10:15:02.480Z INFO  [auth-service] user session authenticated user_id=10241 ip=10.0.4.19
+2024-05-14T10:15:03.007Z DEBUG [cache-redis] cache hit ratio=94 key=user:10241
+2024-05-14T10:15:03.902Z WARN  [search-service] slow query detected duration_ms=1820 table=products
+2024-05-14T10:15:04.221Z INFO  [payment-service] request completed method=POST path=/api/v1/checkout status=201 duration_ms=310
+2024/05/14 10:15:04 level=ERROR service=payment-service msg="upstream timeout calling ledger-service after 5000ms"
+[2024-05-14 10:15:05.771Z] [ERROR] [db-primary] database connection refused host=db-primary port=5432
+2024-05-14T10:15:05.900Z INFO  [notification-worker] batch job finished records=250 duration_ms=980
+2024-05-14T10:15:06.512Z WARNING [inventory-service] connection pool near capacity used=93%
+2024-05-14T10:15:07.044Z FATAL [db-primary] database cluster unreachable - failover initiated
+2024-05-14T10:15:07.700Z INFO  [api-gateway] request completed method=GET path=/health status=200 duration_ms=3
+this line has no timestamp and no recognizable level -> counted as malformed
+2024-05-14T10:15:08.330Z ERROR [payment-service] payment gateway returned HTTP 502 for charge id=txn9f2a4c1
